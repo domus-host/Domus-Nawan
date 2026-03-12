@@ -47,21 +47,40 @@
     <div class="blob top-10 left-10"></div>
     <div class="blob bottom-10 right-10" style="background: #00D1FF;"></div>
 
+    <div id="modalCadastro" class="fixed inset-0 z-[100] hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-[#1A0B2E] border border-white/10 p-8 rounded-2xl max-w-md w-full shadow-2xl relative">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-white">Comece agora no <span class="text-[#00D1FF]">Domus</span></h2>
+                <button onclick="fecharModal()" class="text-white/50 hover:text-white text-2xl">&times;</button>
+            </div>
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Cadastro enviado! Em breve você receberá o acesso.'); fecharModal();">
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Seu melhor e-mail</label>
+                    <input type="email" required placeholder="nome@exemplo.com" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00D1FF] transition-all">
+                </div>
+                <button type="submit" class="w-full bg-[#00D1FF] hover:bg-[#00B8E6] text-[#1A0B2E] font-bold py-3 rounded-lg transition-transform hover:scale-105">
+                    Criar minha conta grátis
+                </button>
+            </form>
+            <p class="text-center text-xs text-gray-500 mt-4">Sem cartão de crédito necessário.</p>
+        </div>
+    </div>
+
     <nav class="flex justify-between items-center p-6 glass sticky top-0 z-50">
         <div class="text-2xl font-bold tracking-tighter">
             DOMUS <span class="text-[#FF8A00]">NAWAK</span>
         </div>
         <div class="space-x-8 hidden md:flex">
-            <a href="#" class="hover:text-[#00D1FF] transition">Editor</a>
-            <a href="#" class="hover:text-[#00D1FF] transition">Hospedagem</a>
-            <a href="#" class="hover:text-[#00D1FF] transition">Domínios</a>
+            <a href="#editor" class="hover:text-[#00D1FF] transition">Editor</a>
+            <a href="#hospedagem" class="hover:text-[#00D1FF] transition">Hospedagem</a>
+            <a href="#dominios" class="hover:text-[#00D1FF] transition">Domínios</a>
         </div>
-        <button class="bg-[#00D1FF] text-[#1A0B2E] px-6 py-2 rounded-full font-bold hover:scale-105 transition">
+        <button onclick="abrirModal()" class="relative z-50 bg-[#00D1FF] text-[#1A0B2E] px-6 py-2 rounded-full font-bold hover:scale-105 transition">
             Começar Grátis
         </button>
     </nav>
 
-    <section class="flex flex-col items-center justify-center min-h-[80vh] text-center px-4">
+    <section class="flex flex-col items-center justify-center min-h-[80vh] text-center px-4 relative z-10">
         <h1 class="text-5xl md:text-8xl font-black mb-6 floating">
             Crie sites que <br><span class="gradient-text">arrasão o mundo.</span>
         </h1>
@@ -70,32 +89,52 @@
             Simples, rápido e com a estética que seu projeto merece.
         </p>
         
-        <div class="glass p-2 rounded-2xl flex w-full max-w-xl items-center">
+        <div class="glass p-2 rounded-2xl flex w-full max-w-xl items-center relative z-50">
             <input type="text" placeholder="Busque seu domínio grátis..." class="bg-transparent flex-grow p-4 outline-none text-white">
-            <button class="bg-[#FF8A00] p-4 rounded-xl hover:bg-orange-600 transition">
+            <button onclick="abrirModal()" class="bg-[#FF8A00] p-4 rounded-xl hover:bg-orange-600 transition">
                 <i class="fas fa-search"></i>
             </button>
         </div>
         <p class="mt-4 text-sm text-gray-500 italic">Domínios .nawak grátis para sempre.</p>
     </section>
 
-    <section class="p-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section id="editor" class="p-10 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
         <div class="glass p-8 rounded-3xl hover:border-[#00D1FF] transition group">
             <i class="fas fa-code text-4xl text-[#00D1FF] mb-4"></i>
             <h3 class="text-2xl font-bold mb-2">IDE Ultra-Rápida</h3>
             <p class="text-gray-400">Edite seu código com preview em tempo real e IA integrada.</p>
         </div>
-        <div class="glass p-8 rounded-3xl hover:border-[#FF8A00] transition group">
+        <div id="hospedagem" class="glass p-8 rounded-3xl hover:border-[#FF8A00] transition group">
             <i class="fas fa-server text-4xl text-[#FF8A00] mb-4"></i>
             <h3 class="text-2xl font-bold mb-2">Hospedagem Edge</h3>
             <p class="text-gray-400">Seu site online em segundos com a velocidade da luz.</p>
         </div>
-        <div class="glass p-8 rounded-3xl hover:border-[#00D1FF] transition group">
+        <div id="dominios" class="glass p-8 rounded-3xl hover:border-[#00D1FF] transition group">
             <i class="fas fa-rocket text-4xl text-[#00D1FF] mb-4"></i>
             <h3 class="text-2xl font-bold mb-2">Deploy em 1 Click</h3>
             <p class="text-gray-400">Integração nativa com GitHub e Vercel para lançamentos rápidos.</p>
         </div>
     </section>
+
+    <script>
+        function abrirModal() {
+            document.getElementById('modalCadastro').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
+        }
+
+        function fecharModal() {
+            document.getElementById('modalCadastro').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Libera o scroll
+        }
+
+        // Fecha o modal se clicar fora da caixa branca
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalCadastro');
+            if (event.target == modal) {
+                fecharModal();
+            }
+        }
+    </script>
 
 </body>
 </html>
