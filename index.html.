@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domus Nawak | O Futuro da Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #1A0B2E; /* Roxo Profundo */
+            color: white;
+            overflow-x: hidden;
+            font-family: sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #00D1FF, #FF8A00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .blob {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: #FF8A00;
+            filter: blur(80px);
+            opacity: 0.2;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blob top-10 left-10"></div>
+    <div class="blob bottom-10 right-10" style="background: #00D1FF;"></div>
+
+    <nav class="flex justify-between items-center p-6 glass sticky top-0 z-50">
+        <div class="text-2xl font-bold tracking-tighter">
+            DOMUS <span class="text-[#FF8A00]">NAWAK</span>
+        </div>
+        <div class="space-x-8 hidden md:flex">
+            <a href="#" class="hover:text-[#00D1FF] transition">Editor</a>
+            <a href="#" class="hover:text-[#00D1FF] transition">Hospedagem</a>
+            <a href="#" class="hover:text-[#00D1FF] transition">Domínios</a>
+        </div>
+        <button class="bg-[#00D1FF] text-[#1A0B2E] px-6 py-2 rounded-full font-bold hover:scale-105 transition">
+            Começar Grátis
+        </button>
+    </nav>
+
+    <section class="flex flex-col items-center justify-center min-h-[80vh] text-center px-4">
+        <h1 class="text-5xl md:text-8xl font-black mb-6 floating">
+            Crie sites que <br><span class="gradient-text">arrasão o mundo.</span>
+        </h1>
+        <p class="text-gray-400 text-xl max-w-2xl mb-10">
+            A fusão perfeita entre a liberdade do código e o poder da hospedagem profissional. 
+            Simples, rápido e com a estética que seu projeto merece.
+        </p>
+        
+        <div class="glass p-2 rounded-2xl flex w-full max-w-xl items-center">
+            <input type="text" placeholder="Busque seu domínio grátis..." class="bg-transparent flex-grow p-4 outline-none text-white">
+            <button class="bg-[#FF8A00] p-4 rounded-xl hover:bg-orange-600 transition">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <p class="mt-4 text-sm text-gray-500 italic">Domínios .nawak grátis para sempre.</p>
+    </section>
+
+    <section class="p-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass p-8 rounded-3xl hover:border-[#00D1FF] transition group">
+            <i class="fas fa-code text-4xl text-[#00D1FF] mb-4"></i>
+            <h3 class="text-2xl font-bold mb-2">IDE Ultra-Rápida</h3>
+            <p class="text-gray-400">Edite seu código com preview em tempo real e IA integrada.</p>
+        </div>
+        <div class="glass p-8 rounded-3xl hover:border-[#FF8A00] transition group">
+            <i class="fas fa-server text-4xl text-[#FF8A00] mb-4"></i>
+            <h3 class="text-2xl font-bold mb-2">Hospedagem Edge</h3>
+            <p class="text-gray-400">Seu site online em segundos com a velocidade da luz.</p>
+        </div>
+        <div class="glass p-8 rounded-3xl hover:border-[#00D1FF] transition group">
+            <i class="fas fa-rocket text-4xl text-[#00D1FF] mb-4"></i>
+            <h3 class="text-2xl font-bold mb-2">Deploy em 1 Click</h3>
+            <p class="text-gray-400">Integração nativa com GitHub e Vercel para lançamentos rápidos.</p>
+        </div>
+    </section>
+
+</body>
+</html>
