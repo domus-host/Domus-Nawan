@@ -135,6 +135,25 @@
             }
         }
     </script>
+    <script>
+        function abrirModal() {
+            document.getElementById('modalCadastro').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function fecharModal() {
+            document.getElementById('modalCadastro').classList.add('hidden');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        // Fecha se clicar fora da caixa
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalCadastro');
+            if (event.target == modal) {
+                fecharModal();
+            }
+        }
+    </script>
 
 </body>
 </html>
