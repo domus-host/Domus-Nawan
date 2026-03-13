@@ -149,6 +149,31 @@
                 fecharModal();
             }
         }
+    <script>
+        const modal = document.getElementById('modalCadastro');
+
+        function abrirModal() {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function fecharModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function handleCadastro() {
+            alert('Sucesso! Você foi adicionado à lista VIP do Domus Nawak.');
+            fecharModal();
+        }
+
+        // Fechar ao clicar fora da caixa - A chave que faltava fechar era aqui embaixo:
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                fecharModal();
+            }
+        }; // Fim da função
     </script>
+
 </body>
 </html>
